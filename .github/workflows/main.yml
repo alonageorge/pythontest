@@ -62,6 +62,7 @@ jobs:
           scp -o StrictHostKeyChecking=no -i private_key -r /home/runner/work/pythontest/* ${USER_NAME}@${HOSTNAME}:/home/ubuntu/my-pyapp
           # SSH into EC2 and perform the deployment steps
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            cd /home/ubuntu/my-pyapp
-            sudo systemctl restart flask_app.service
+            cd /home/ubuntu/my-pyapp/pythontest
+            python3 app.py
+
             '
