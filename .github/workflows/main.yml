@@ -39,7 +39,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
-          name: react-build
+          name: flask-app-files
       
         
       - name: Set up AWS credentials
