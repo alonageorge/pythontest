@@ -21,3 +21,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          
+      - name: Save artifact (flask app files)
+        uses: actions/upload-artifact@v3
+        with:
+          name: flask-app-files  # This is the name of the artifact
+          path: .
