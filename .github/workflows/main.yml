@@ -1,6 +1,4 @@
 name: Build and Deploy React App to EC2
-
-
 on:
   push:
     branches:
