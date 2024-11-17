@@ -63,7 +63,7 @@ jobs:
           # scp -o StrictHostKeyChecking=no -i private_key -r /home/runner/work/pythontest/* ${USER_NAME}@${HOSTNAME}:/home/ubuntu/python
           # SSH into EC2 and perform the deployment steps
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            cd /home/ubuntu/python/pythontest
+            cd /home/ubuntu/python/pythontest/src
             python3 app.py
 
             '
