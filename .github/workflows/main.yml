@@ -60,10 +60,10 @@ jobs:
           # Save the private SSH 
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           
-          scp -o StrictHostKeyChecking=no -i private_key -r /home/runner/work/pythontest/* ${USER_NAME}@${HOSTNAME}:/home/ubuntu/python
+          # scp -o StrictHostKeyChecking=no -i private_key -r /home/runner/work/pythontest/* ${USER_NAME}@${HOSTNAME}:/home/ubuntu/python
           # SSH into EC2 and perform the deployment steps
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            cd /home/ubuntu/my-pyapp/pythontest
+            cd /home/ubuntu/python/pythontest
             python3 app.py
 
             '
