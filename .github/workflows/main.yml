@@ -62,13 +62,15 @@ jobs:
           # SSH into EC2 and perform the deployment steps
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
             cd /home/ubuntu/python/
-            sudo apt install python3.12-venv
-            python3 -m venv venv
-            source venv/bin/activate
+            
 
             pip install -r requirements.txt
             pip install --no-cache-dir --upgrade -e .
             cd /home/ubuntu/python/pythontest/src
+            pkill -f "uvicorn"
+
+          # Start the FastAPI app with Uvicorn on port 80 (or any desired port)
+            nohup uvicorn ipro_app:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
             
 
             '
